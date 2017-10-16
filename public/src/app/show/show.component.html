@@ -1,0 +1,27 @@
+<h2>Question: {{shows.content}}</h2>
+<h4>Description: {{shows.description}}</h4>
+<!-- {{shows | json }} -->
+
+
+<div *ngIf="shows._user">
+
+	<!-- Question get displayed ********************************************** -->
+
+	<fieldset *ngFor="let answer of shows.answers, let i = index ">
+
+		<p>Posted by: {{answer._user.name}}</p>
+		
+		<h3> Answer: {{answer.content}}</h3>
+		<p>Description: {{answer.support}}</p>
+
+		<!-- This is where the likes are generated ******************************** -->
+		<form (submit)="likes(answer._id)">
+			<input type="submit" name="likes" value="Like: {{ answer.likes.length }}">
+		</form>
+
+
+	</fieldset>
+
+	
+</div>
+

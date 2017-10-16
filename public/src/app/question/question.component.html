@@ -1,0 +1,17 @@
+<h3>New Question</h3>
+
+<div *ngIf="errors.length>0">
+	<p *ngFor="let error of errors">{{error}}</p>	
+</div>
+
+<form (submit)="newQuestion()">
+	<p *ngIf="!content.prestine && content.invalid">The question must be at least 10 characters long</p>
+
+	Question: <input type="text" [(ngModel)]="question.content" name="content" #content="ngModel" minlength=10>
+	Description (optional): <input type="text" [(ngModel)]="question.description" name="description">
+
+	<!-- <input [routerLink]="['wall']" type="submit" name="cancel" value="Cancel"> -->
+	<input type="submit" name="">
+
+	
+</form>

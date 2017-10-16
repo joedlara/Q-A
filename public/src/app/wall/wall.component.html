@@ -1,0 +1,32 @@
+<h2>Hi {{currentUser.name}}!</h2>
+<a [routerLink]="['new_question']">Add a Question</a>
+
+<!-- {{ questions | json }} -->
+
+<h3>All Questions</h3>
+<div *ngFor="let question of questions; let i= index ">
+	<!-- messages get displayed ********************************************** -->
+	<table>
+		<tr>
+			<th>Question</th>
+			<th>Answers</th>
+			<th>Action</th>
+			
+		</tr>
+		<tr>
+			<td>{{question.content}}</td>
+			<td>{{question.answers.length}}</td>
+
+			<td>
+				<form (submit)="showQuestions(question._id)">
+					<input type="submit" name="show" value="Show">
+				</form>
+
+				<form (submit)="answerQuestion(question._id)">
+					<input type="submit" name="answer" value="Answer">
+				</form>
+			</td>
+		</tr>
+	</table>
+	
+</div>
